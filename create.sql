@@ -12,7 +12,7 @@ CREATE TABLE brand (
 ALTER TABLE brand ADD CONSTRAINT brand_pk PRIMARY KEY ( brand_name );
 
 CREATE TABLE city (
-    city_name             VARCHAR2(30) NOT NULL,
+    city_name             VARCHAR2(50) NOT NULL,
     country_country_name  VARCHAR2(10) NOT NULL
 );
 
@@ -32,12 +32,12 @@ ALTER TABLE ownership ADD CONSTRAINT ownership_pk PRIMARY KEY ( owner_ship );
 
 CREATE TABLE store (
     store_number          VARCHAR2(30) NOT NULL,
-    store_name            VARCHAR2(10) NOT NULL,
+    store_name            VARCHAR2(100) NOT NULL,
     longitude             FLOAT(2) NOT NULL,
     latitude              FLOAT(2) NOT NULL,
     brand_brand_name      VARCHAR2(30) NOT NULL,
     ownership_owner_ship  VARCHAR2(30) NOT NULL,
-    city_city_name        VARCHAR2(30) NOT NULL
+    city_city_name        VARCHAR2(50) NOT NULL
 );
 
 ALTER TABLE store ADD CONSTRAINT store_pk PRIMARY KEY ( store_number );
