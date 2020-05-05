@@ -28,65 +28,56 @@ GROUP BY country_name
 """
 cursor.execute(query1)
 
-num = list()
+c_contry = list()
 country = list()
 
 for Count_Country, Country in cursor:
-    print(Count_Country)
-    print(Country)
-    num.append(Count_Country)
+    c_contry.append(Count_Country)
     country.append(Country)
 print("QUERY 1")
-print(num)
+print(c_contry)
 print(country)
-print('\n')
+
+
 
 query2 = '''SELECT Count(store_number) As Count_Ownership,owner_ship AS Ownership
 From store_ownership
 GROUP BY owner_ship'''
 cursor.execute(query2)
-proc = list()
+c_o = list()
 ownersh = list()
 
 for Count_Ownership, owner_ship in cursor:
-    proc.append(Count_Ownership)
+    c_o.append(Count_Ownership)
     ownersh.append(owner_ship)
 print('QUERY 2')
-print(proc)
+print(c_o)
 print(ownersh)
-print('\n')
+
 
 query3 = '''SELECT Count(brand_name) As Count_Brand,brand_name AS Brand
 From store_brand
 GROUP BY brand_name
 '''
+
 cursor.execute(query3)
-lati = list()
-longit = list()
+c_b= list()
+brands = list()
 
 for Brand, Count_Brand in cursor:
-    longit.append(Brand)
-    lati.append(Count_Brand)
+    brands.append(Brand)
+    c_b.append(Count_Brand)
 print('QUERY 3')
-print(lati)
-print(longit)
+print(c_b)
+print(brands)
 
-bar = go.Bar(
-    x=country,
-    y=num
-)
+bar = go.Bar(x=country,y=c_contry)
 gr_q1 = py.plot([bar], auto_open=False, filename='task N1')
 
-pie = go.Pie(
-    labels=ownersh,
-    values=proc
-)
+pie = go.Pie(labels=ownersh,values=c_o)
 gr_q2 = py.plot([pie], auto_open=False, filename='task N2')
 
-scatter = go.Scatter(
-    x=longit,
-    y=lati
-)
+scatter = go.Scatter(x=c_b,y=brands)
 gr_q3 = py.plot([scatter], auto_open=False, filename='task N3')
 
 my_board = dashboard.Dashboard()
