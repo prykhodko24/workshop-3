@@ -40,24 +40,25 @@ print(country)
 
 
 
-query2 = '''SELECT Count(store_number) As Count_Ownership,owner_ship AS Ownership
-From store_ownership
-GROUP BY owner_ship'''
+query2 = '''SELECT Count(store_number) As Count_Ownership,ownership_owner_ship AS Ownership
+From store_country
+GROUP BY ownership_owner_ship'''
 cursor.execute(query2)
 c_o = list()
 ownersh = list()
 
-for Count_Ownership, owner_ship in cursor:
+for Count_Ownership, Ownership in cursor:
     c_o.append(Count_Ownership)
-    ownersh.append(owner_ship)
+    ownersh.append(Ownership)
 print('QUERY 2')
 print(c_o)
 print(ownersh)
 
 
-query3 = '''SELECT Count(brand_name) As Count_Brand,brand_name AS Brand
-From store_brand
-GROUP BY brand_name
+
+query3 = '''SELECT Count(brand_brand_name) As Count_Brand,brand_brand_name AS Brand
+From store_country
+GROUP BY brand_brand_name
 '''
 
 cursor.execute(query3)
