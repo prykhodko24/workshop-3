@@ -8,8 +8,6 @@ import chart_studio.dashboard_objs as dashboard
 import re
 
 
-
-
 username = 'MYONLINEEDU'
 password = 'njvf24'
 databaseName = 'localhost/xe'
@@ -34,7 +32,8 @@ country = list()
 for Count_Country, Country in cursor:
     c_contry.append(Count_Country)
     country.append(Country)
-print("QUERY 1")
+    
+print("QUERY N1")
 print(c_contry)
 print(country)
 
@@ -50,7 +49,8 @@ ownersh = list()
 for Count_Ownership, Ownership in cursor:
     c_o.append(Count_Ownership)
     ownersh.append(Ownership)
-print('QUERY 2')
+    
+print('QUERY N2')
 print(c_o)
 print(ownersh)
 
@@ -68,14 +68,18 @@ brands = list()
 for Brand, Count_Brand in cursor:
     brands.append(Brand)
     c_b.append(Count_Brand)
+    
+    
 print('QUERY 3')
 print(c_b)
 print(brands)
 
-bar = go.Bar(x=country,y=c_contry)
+bar = go.Bar(
+    x=country,y=c_contry)
 gr_q1 = py.plot([bar], auto_open=False, filename='task N1')
 
-pie = go.Pie(labels=ownersh,values=c_o)
+pie = go.Pie(
+    labels=ownersh,values=c_o)
 gr_q2 = py.plot([pie], auto_open=False, filename='task N2')
 
 scatter = go.Scatter(x=c_b,y=brands)
@@ -88,6 +92,8 @@ box_n_one = {
     'fileId': 't.prykhodko:' + get_id(gr_q1),
     'title': '1 запит-кількість філіалів  в 3 країнах з найбільшої кількістю закладів '
 }
+
+
 box_n_two = {
     'type': 'box',
     'boxType': 'plot',
@@ -95,6 +101,8 @@ box_n_two = {
     'title': '2 запит-форми власності та відсоток закладів з такою формою власності',
 
 }
+
+
 box_n_three = {
     'type': 'box',
     'boxType': 'plot',
